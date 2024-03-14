@@ -55,12 +55,9 @@ public class manejadorCartas {
     public void showUserCollectionSortedByType() {
         Map<String, Map<String, Integer>> sortedCollections = new TreeMap<>();
 
-        // Iterar sobre todas las colecciones de usuarios
         for (Map.Entry<String, Map<String, Integer>> entry : userCollections.entrySet()) {
-            // String username = entry.getKey();
             Map<String, Integer> userCollection = entry.getValue();
 
-            // Iterar sobre todas las cartas en la colección del usuario
             for (Map.Entry<String, Integer> cardEntry : userCollection.entrySet()) {
                 String cardName = cardEntry.getKey();
                 String cardType = cardsMap.getOrDefault(cardName, "Desconocido");
@@ -75,7 +72,6 @@ public class manejadorCartas {
             }
         }
 
-        // Imprimir la colección ordenada por tipo
         System.out.println("Colección del usuario ordenada por tipo:");
         for (Map.Entry<String, Map<String, Integer>> typeEntry : sortedCollections.entrySet()) {
             String cardType = typeEntry.getKey();
