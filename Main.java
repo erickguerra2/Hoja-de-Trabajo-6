@@ -1,8 +1,20 @@
+/**
+ * Fernando Ruíz 23065
+ * Erick Guerra 23208
+ */
+
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
-
+/**
+ * Clase principal que proporciona una interfaz de línea de comandos para interactuar con el sistema de manejo de cartas.
+ */
 public class Main {
+    /**
+     * Método principal que inicia la aplicación.
+     * Permite al usuario interactuar con el sistema de manejo de cartas a través de una interfaz de línea de comandos.
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Seleccione la implementación de Mapa que desea utilizar:");
