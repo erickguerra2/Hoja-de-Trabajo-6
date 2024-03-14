@@ -1,9 +1,22 @@
+/**
+ * Fernando Ruíz 23065
+ * Erick Guerra 23208
+ */
+
 import java.util.HashMap;
-import java.util.TreeMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
+/**
+ * Clase que crea instancias de la clase manejadorCartas según la elección del usuario.
+ */
 public class cartasFactory {
+    /**
+     * Crea una instancia de manejadorCartas según la elección del usuario.
+     * @param choice Elección del usuario (1 para HashMap, 2 para TreeMap, 3 para LinkedHashMap).
+     * @return Instancia de manejadorCartas.
+     */
     public static manejadorCartas createmanejadorCartas(int choice) {
         Map<String, String> cardsMap;
         switch (choice) {
@@ -24,4 +37,3 @@ public class cartasFactory {
         return new manejadorCartas(cardsMap);
     }
 }
-

@@ -1,16 +1,33 @@
+/**
+ * Fernando Ruíz 23065
+ * Erick Guerra 23208
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * Clase que maneja las cartas y las colecciones de usuarios.
+ */
 public class manejadorCartas {
     private Map<String, String> cardsMap;
     private Map<String, Map<String, Integer>> userCollections;
 
+    /**
+     * Constructor que inicializa el manejador de cartas con un mapa de cartas proporcionado.
+     * @param cardsMap Mapa de cartas.
+     */
     public manejadorCartas(Map<String, String> cardsMap) {
         this.cardsMap = cardsMap;
         this.userCollections = new HashMap<>();
     }
 
+    /**
+     * Carga las cartas desde un archivo.
+     * @param filename Nombre del archivo.
+     * @throws FileNotFoundException Si el archivo no se encuentra.
+     */
     public void loadCardsFromFile(String filename) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(filename));
         while (scanner.hasNextLine()) {
@@ -23,6 +40,11 @@ public class manejadorCartas {
         scanner.close();
     }
 
+    /**
+     * Agrega una carta a la colección de un usuario.
+     * @param username Nombre de usuario.
+     * @param cardName Nombre de la carta.
+     */
     public void addCardToUserCollection(String username, String cardName) {
         if (!userCollections.containsKey(username)) {
             userCollections.put(username, new HashMap<>());
@@ -32,6 +54,10 @@ public class manejadorCartas {
         System.out.println("Carta agregada correctamente a la colección de " + username + ".");
     }
 
+    /**
+     * Muestra el tipo de una carta específica.
+     * @param cardName Nombre de la carta.
+     */
     public void showCardType(String cardName) {
         if (cardsMap.containsKey(cardName)) {
             System.out.println("Tipo de la carta " + cardName + ": " + cardsMap.get(cardName));
@@ -40,6 +66,10 @@ public class manejadorCartas {
         }
     }
 
+    /**
+     * Muestra la colección de un usuario.
+     * @param username Nombre de usuario.
+     */
     public void showUserCollection(String username) {
         if (userCollections.containsKey(username)) {
             System.out.println("Colección de " + username + ":");
@@ -52,6 +82,9 @@ public class manejadorCartas {
         }
     }
 
+    /**
+     * Muestra la colección de un usuario ordenada por tipo de carta.
+     */
     public void showUserCollectionSortedByType() {
         Map<String, Map<String, Integer>> sortedCollections = new TreeMap<>();
 
@@ -85,6 +118,9 @@ public class manejadorCartas {
         }
     }
 
+    /**
+     * Muestra todas las cartas disponibles.
+     */
     public void showAllCards() {
         System.out.println("Todas las cartas disponibles:");
         for (Map.Entry<String, String> entry : cardsMap.entrySet()) {
@@ -92,6 +128,9 @@ public class manejadorCartas {
         }
     }
 
+    /**
+     * Muestra todas las cartas disponibles ordenadas por tipo.
+     */
     public void showAllCardsSortedByType() {
         List<Map.Entry<String, String>> sortedList = new ArrayList<>(cardsMap.entrySet());
         sortedList.sort(Comparator.comparing(Map.Entry::getValue));
